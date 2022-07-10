@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title inertia>{{ config('app.name', 'Laravel') }}</title>
+    <title>CodingRafi</title>
 
     <!-- Scripts -->
     @routes
@@ -30,18 +30,21 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
+    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+
     <!-- Page CSS -->
-    <!-- Page -->
-    <link rel="stylesheet" href="/assets/vendor/css/pages/page-auth.css" />
+
     <!-- Helpers -->
     <script src="/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/js/config.js"></script>
 </head>
 
 <body class="font-sans antialiased">
     @inertia
 
-    <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/assets/vendor/libs/popper/popper.js"></script>
@@ -52,11 +55,19 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    <script src="/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="/assets/js/dashboards-analytics.js"></script>
+
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    {{-- sweet alert --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@ defineProps({
 <template>
     <button
         :type="type"
-        class="inline-flex justify-content-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest transition ease-in-out duration-150 my-button"
+        class="inline-flex justify-content-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest transition ease-in-out duration-150 my-button"
     >
         <slot />
     </button>
@@ -19,8 +19,8 @@ defineProps({
 <style>
 .my-button {
     margin: 0;
-    width: 100%;
     background-color: #696cff;
+    padding: 11px 20px;
 }
 
 .my-button:hover{
