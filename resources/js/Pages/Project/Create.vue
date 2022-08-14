@@ -19,7 +19,6 @@
                         <select class="form-control mt-2" multiple>
                             <option :value="skil.id" v-for="skil in skills">{{ skil.nama }}</option>
                         </select>
-                        <!-- <Select2 v-model="myValue" :options="skills"/> -->
                     </div>
                 </div>
             </div>
@@ -32,7 +31,6 @@ import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import BreezeButton from "@/Components/Button.vue";
 import BreezeInput from "@/Components/Input.vue";
 import BreezeLabel from "@/Components/Label.vue";
-// import Select2 from 'vue3-select2-component';
 import { usePage } from '@inertiajs/inertia-vue3'
 import { onMounted, ref } from "vue";
 

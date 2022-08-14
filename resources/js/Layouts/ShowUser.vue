@@ -99,9 +99,7 @@
         </div>
     </div>
 
-    <div class="container">
-        <tags-ball v-bind:style='{"border":"2px solid black"}' :width='200' :tags='tags'/>
-
+    <div class="container container-ball">
     </div>
 
 </template>
@@ -159,7 +157,8 @@ const eraseText = () => {
 onMounted(() => {
     typeText();
 
-    var x = window.matchMedia("(max-width: 600px)");
+    const container = document.querySelector('.container-ball');
+    var x = window.matchMedia("(max-width: 300px)");
     let radius = 350;
 
     if (x.matches) {
@@ -186,7 +185,7 @@ onMounted(() => {
     };
 
     TagCloud(container, texts, options);
-    document.querySelector(".tagcloud").style.margin = "auto";
+    document.querySelector(".tagcloud").style.margin = "10px";
 })
 
 </script>
