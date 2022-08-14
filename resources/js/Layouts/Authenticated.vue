@@ -4,7 +4,7 @@
             <!-- Menu -->
             <aside
                 id="layout-menu"
-                class="layout-menu menu-vertical menu bg-menu-theme"
+                class="layout-menu menu-vertical menu bg-menu-theme aside-nya"
             >
                 <div class="app-brand demo">
                     <Link href="/dashboard" class="app-brand-link">
@@ -17,6 +17,7 @@
                     <a
                         href="javascript:void(0);"
                         class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none"
+                        @click.prevent="removeMenu"
                     >
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a>
@@ -75,6 +76,7 @@
                         <a
                             class="nav-item nav-link px-0 me-xl-4"
                             href="javascript:void(0)"
+                            @click.prevent="addMenu"
                         >
                             <i class="bx bx-menu bx-sm"></i>
                         </a>
@@ -242,7 +244,27 @@ import { ref } from "vue";
 import BreezeNavLink from "@/Components/NavLink.vue";
 import BreezeListItem from "@/Components/ListItem.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import { onBeforeMount } from "vue";
 
 const showingNavigationDropdown = ref(false);
+
+const addMenu = () => {
+    var root = document.getElementsByTagName( 'html' )[0];
+    root.classList.add('layout-menu-expanded');
+}
+
+const removeMenu = () => {
+    var root = document.getElementsByTagName( 'html' )[0];
+    root.classList.remove('layout-menu-expanded');
+}
+
+window.addEventListener('mouseup', function(event){
+	var aside = document.querySelector('.aside-nya');
+	if (event.target != aside && event.target.parentNode != aside){
+        var root = document.getElementsByTagName( 'html' )[0];
+        root.classList.remove('layout-menu-expanded');
+    }
+});
+
 </script>
 

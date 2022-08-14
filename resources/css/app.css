@@ -1,3 +1,99 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --warna-valet-myyellow: #FBAF0E;
+    --warna-valet-mygrey: #293142;
+    --warna-valet-myblack: #1C1C1C;
+}
+
+body {
+    background-color: var(--warna-valet-myblack) !important;
+    overflow-x: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);     
+    background: #666;    
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #232323;
+}
+
+/* Todo Navbar yang di index Portofolio */
+
+.nav-portofolio {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+}
+
+.nav-portofolio .link-brand {
+    font-weight: 600;
+    color: var(--warna-valet-myyellow);
+}
+
+.nav-link:hover{
+    color: var(--warna-valet-myyellow);
+}
+
+.h1nya{
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #e2e2e2;
+}
+
+/* .nav-logo {
+    position: relative;
+}
+
+.nav-logo a {
+    mix-blend-mode: difference;
+    font-weight: 700;
+}
+
+.nav-logo::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: -8px;
+    width: 35%;
+    border-radius: 2px;
+    background-color: #fff;
+    z-index: -1;
+    overflow: hidden;
+    animation: animate 4s infinite linear;
+    transition: 1s;
+}
+
+.nav-logo:hover::after {
+    width: 100%;
+    background-color: transparent;
+}
+
+.nav-logo a:hover {
+    color: var(--warna-valet-myyellow) !important;
+    mix-blend-mode: normal;
+} */
+
+@keyframes animate {
+    0%,
+    100% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(75px);
+    }
+}
+
+/* Todo akhir navbar */

@@ -35,7 +35,7 @@ const submit = () => {
             {{ status }}
         </div>
 
-        <div class="card">
+        <div class="card" style="width: 28rem;margin: auto;">
             <div class="card-body">
                 <h4 class="mb-2 text-center text-bold" style="font-size: 1.5rem;font-weight: 600;">Sign In</h4>
 

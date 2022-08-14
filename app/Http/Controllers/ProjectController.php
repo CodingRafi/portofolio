@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Skil;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Inertia\Inertia;
@@ -16,7 +17,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Project/Index');
     }
 
     /**
@@ -26,7 +27,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $skils = Skil::all();
+        return Inertia::render('Project/Create', [
+            'skils' => $skils
+        ]);
     }
 
     /**

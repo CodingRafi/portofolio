@@ -24,7 +24,8 @@ class StoreSkilRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => 'required'
+            'nama' => 'required',
+            'logo' => 'mimes:jpeg,jpg,png|required|max:10000'
         ];
     }
 }

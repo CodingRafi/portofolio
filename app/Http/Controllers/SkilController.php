@@ -6,6 +6,8 @@ use App\Models\Skil;
 use App\Http\Requests\StoreSkilRequest;
 use App\Http\Requests\UpdateSkilRequest;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SkilController extends Controller
 {
@@ -40,7 +42,10 @@ class SkilController extends Controller
      */
     public function store(StoreSkilRequest $request)
     {
-        Skil::create($request->all());
+        Skil::create([
+            'nama' => $request->nama,
+            'logo' => $request->file('logo')->store('logo')
+        ]);
 
         return redirect()->back()->with('message', 'Berhasil Menambahkan Skill');
     }
@@ -74,11 +79,23 @@ class SkilController extends Controller
      * @param  \App\Models\Skil  $skil
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSkilRequest $request, Skil $skil, $id)
+    public function update(Request $request, Skil $skil, $id)
     {
+        $validatedDate = $request->validate([
+            'nama' => 'required',
+            'logo' => 'mimes:jpeg,jpg,png|max:10000'
+        ]);
+
         $skil = Skil::findOrFail($id);
 
-        $skil->update($request->all());
+        if($request->file('logo')){
+            if($skil->logo){
+                Storage::delete($skil->logo);
+            }
+            $validatedDate['logo'] = $request->file('logo')->store('logo');
+        }
+
+        $skil->update($validatedDate);
 
         return redirect()->back()->with('message', 'Berhasil Mengupdate Skill');
     }
@@ -92,6 +109,9 @@ class SkilController extends Controller
     public function destroy(Skil $skil, $id)
     {
         $skil = Skil::findOrFail($id);
+        if($skil->logo){
+            Storage::delete($skil->logo);
+        }
         $skil->delete();
 
         return redirect()->back()->with('message', 'Berhasil Menghapus skill');

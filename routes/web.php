@@ -17,13 +17,17 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
+
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('ShowUser/Index');
 });
 
 Route::get('/dashboard', function () {
@@ -32,6 +36,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('skill', SkilController::class);
+    Route::post('skill/{id}', [SkilController::class, 'update']);
     Route::resource('projects', ProjectController::class);
 });
 
