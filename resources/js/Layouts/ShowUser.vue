@@ -100,33 +100,7 @@
     </div>
 
     <div class="container">
-        <div class="tagBall">
-            02
-            <a class="tag" target="_blank" href="#">item1</a>
-            03
-            <a class="tag" target="_blank" href="#">item2</a>
-            04
-            <a class="tag" target="_blank" href="#">item1</a>
-            05
-            <a class="tag" target="_blank" href="#">item2</a>
-            06
-            <a class="tag" target="_blank" href="#">item1</a>
-            07
-            <a class="tag" target="_blank" href="#">item2</a>
-            08
-            <a class="tag" target="_blank" href="#">item1</a>
-            09
-            <a class="tag" target="_blank" href="#">item2</a>
-            10
-            <a class="tag" target="_blank" href="#">item1</a>
-            11
-            <a class="tag" target="_blank" href="#">item2</a>
-            12
-            <a class="tag" target="_blank" href="#">item1</a>
-            13
-            <a class="tag" target="_blank" href="#">item2</a>
-            14
-        </div>
+        <tags-ball v-bind:style='{"border":"2px solid black"}' :width='200' :tags='tags'/>
 
     </div>
 
@@ -135,6 +109,7 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3';
 import { ref, onMounted } from 'vue';
+import TagCloud from "TagCloud";
 
 let typeValue = ref('');
 let typeStatus = false;
@@ -183,11 +158,36 @@ const eraseText = () => {
 
 onMounted(() => {
     typeText();
+
+    var x = window.matchMedia("(max-width: 600px)");
+    let radius = 350;
+
+    if (x.matches) {
+      radius = 200;
+    }
+
+    const texts = [
+      "HTML 5",
+      "CSS 3",
+      "JavaScript",
+      "Vue.js",
+      "Next.js",
+      "Jquery",
+      "Bootstrap 5",
+      "Laravel",
+      "Wordpress",
+      "SASS",
+      "Git",
+      "TypeScript",
+    ];
+    const options = {
+      radius: radius,
+      itemClass: "item",
+    };
+
+    TagCloud(container, texts, options);
+    document.querySelector(".tagcloud").style.margin = "auto";
 })
-
-</script>
-
-<script type="text/javascript">
 
 </script>
 
