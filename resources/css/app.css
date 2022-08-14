@@ -11,8 +11,8 @@
 }
 
 body {
-    background-color: var(--warna-valet-myblack) !important;
-    overflow-x: none;
+    /* background-color: var(--warna-valet-myblack) !important; */
+    /* overflow-x: none; */
 }
 
 ::-webkit-scrollbar {
