@@ -21,8 +21,10 @@
     },
     "dependencies": {
         "jquery": "^3.6.0",
-        "vue-loader": "^17.0.0",
+        "primeicons": "^5.0.0",
+        "primevue": "^3.15.0",
         "TagCloud": "^2.2.0",
+        "vue-loader": "^17.0.0",
         "vue3-select2-component": "^0.1.7"
     }
 }

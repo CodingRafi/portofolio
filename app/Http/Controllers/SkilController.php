@@ -116,4 +116,9 @@ class SkilController extends Controller
 
         return redirect()->back()->with('message', 'Berhasil Menghapus skill');
     }
+
+    public function get_api(){
+        $skills = Skil::orderBy('created_at', 'desc')->get();
+        return response()->json($skills, 200);
+    }
 }

@@ -16,13 +16,14 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('role');
             $table->text('deskripsi');
             $table->string('link_github');
             $table->string('link_website');
             $table->timestamps();
         });
 
-        Schema::create('skil_project', function (Blueprint $table) {
+        Schema::create('project_skil', function (Blueprint $table) {
             $table->id();
             $table->foreignId('skil_id')->constrained();
             $table->foreignId('project_id')->constrained();

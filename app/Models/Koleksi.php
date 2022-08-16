@@ -12,10 +12,18 @@ class Koleksi extends Model
     protected $guarded = ['id'];
 
     public function project(){
-        return $this->hasOne(Project::class);
+        return $this->belongsTo(Project::class);
     }
 
     public function foto(){
         return $this->hasMany(Foto::class);
+    }
+
+    public static function koleksis($datas){
+        $koleksis = [];
+        foreach($datas as $data){
+            $koleksis[] = $data->koleksi;
+        }
+        return $koleksis;
     }
 }

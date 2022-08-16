@@ -6,7 +6,11 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
-import Select2 from 'vue3-select2-component';
+import PrimeVue from 'primevue/config';
+import 'primevue/resources/themes/saga-blue/theme.css';     //theme
+import 'primevue/resources/primevue.min.css';               //core css
+import 'primeicons/primeicons.css';                           //icons
+import MultiSelect from 'primevue/multiselect';
 import TagsBall from 'TagCloud';
 import $ from 'jquery'
 
@@ -19,8 +23,9 @@ createInertiaApp({
         return createApp({ render: () => h(app, props) })
             .use(plugin)
             .use(TagsBall)
+            .use(PrimeVue)
+            .component('MultiSelect', MultiSelect)
             .use(ZiggyVue, Ziggy)
-            .component('Select2', Select2)
             .mount(el);
     },
 });

@@ -14,28 +14,35 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Bahasa Pemrograman</th>
+                                <th>Role</th>
+                                <th>Skills</th>
+                                <th>Deskripsi</th>
+                                <th>Link Github</th>
+                                <th>Link Website</th>
+                                <th>Gambar Utama</th>
+                                <th>Gambar Preview</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            <!-- <tr v-for="no in $page.props.skills.length">
+                            <tr v-for="no in $page.props.projects.length">
                                 <td>{{ no }}</td>
-                                <td class="nama-skil">{{ $page.props.skills[no - 1].nama }}</td>
-                                <td class="d-flex justify-content-center">
-                                    <button
-                                        class="btn btn-warning"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#update"
-                                        @click.prevent="moveDataEdit"
-                                        :data-id="no-1"
-                                        style="margin-right: 10px;"
-                                    >
-                                        Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-hapus" @click.prevent="hapus" :data-id="no-1">Delete</button>
+                                <td>{{ $page.props.projects[no - 1].nama }}</td>
+                                <td>{{ $page.props.projects[no - 1].role }}</td>
+                                <td>
+                                    <img v-for="skil in skills[no-1]" :src="`/storage/${skil.logo}`" alt="">
                                 </td>
-                            </tr> -->
+                                <td>{{ $page.props.projects[no - 1].deskripsi }}</td>
+                                <td>{{ $page.props.projects[no - 1].link_github }}</td>
+                                <td>{{ $page.props.projects[no - 1].link_website }}</td>
+                                <td>
+                                    <img :src="`/storage/${$page.props.fotos[no-1][0].nama}`" alt="">
+                                </td>
+                                <td class="d-flex justify-content-center">
+                                    <button type="button" class="btn btn-danger btn-hapus" @click.prevent="hapus"
+                                        :data-id="no - 1" style="background-color: #ff3e1d;">Delete</button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -54,5 +61,25 @@
 <script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import Alert from "@/Components/Alert.vue";
-import { Link } from '@inertiajs/inertia-vue3'
+import { Link, usePage,useForm } from '@inertiajs/inertia-vue3';
+import {onMounted, ref} from 'vue';
+import Button from 'primevue/button';
+import { Inertia } from "@inertiajs/inertia";
+
+const projects = ref([]);
+const fotos = ref([]);
+const skills = ref([]);
+
+onMounted(() => {
+    projects.value = usePage().props.value.projects;
+    fotos.value = usePage().props.value.fotos;
+    skills.value = usePage().props.value.skills;
+})
+
+const hapus = (e) => {
+    Inertia.delete('/projects/' + usePage().props.value.projects[e.target.getAttribute('data-id')].id, {
+        onBefore: () => confirm('Apakah anda yakin akan menghapus ini?'),
+    });
+}
+
 </script>

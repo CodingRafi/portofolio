@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProjectRequest extends FormRequest
+class StorePenghargaanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,9 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'nama' => 'required',
-            'role' => 'required',
+            'kategori' => 'required',
             'deskripsi' => 'required',
-            'skills' => 'required',
-            'utama' => 'required|mimes:jpg,jpeg,png|file|max:5120',
-            'preview' => 'required',
-            'preview.*' => 'mimes:jpg,jpeg,png|file|max:5120',
+            'image' => 'required|mimes:jpg,jpeg,png|file|max:5120'
         ];
     }
 }

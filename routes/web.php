@@ -4,7 +4,9 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\SkilController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\PenghargaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('skill', SkilController::class);
     Route::post('skill/{id}', [SkilController::class, 'update']);
     Route::resource('projects', ProjectController::class);
+    Route::resource('penghargaan', PenghargaanController::class);
+    Route::resource('message', MessageController::class);
 });
 
 require __DIR__.'/auth.php';

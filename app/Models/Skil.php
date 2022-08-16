@@ -14,4 +14,21 @@ class Skil extends Model
     public function project() {
         return $this->belongsToMany(Project::class);
     }
+
+    public static function getSkills($projects){
+        $skills = [];
+
+        foreach ($projects as $key => $project) {
+            $skills[] = $project->skill;
+        }
+
+        return $skills;
+    }
+
+    public static function deleteSkills($project){
+        $project->skill()->detach();
+        // foreach ($project->skill as $key => $skill) {
+        //     $skill->detach();
+        // }
+    }
 }

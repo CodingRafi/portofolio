@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SkilController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\PenghargaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/message', [MessageController::class, 'store']);
+Route::get('/get-skills', [SkilController::class, 'get_api']);
+Route::get('/get-achivement', [PenghargaanController::class, 'get_achivement']);
+Route::get('/get-sertifikat', [PenghargaanController::class, 'get_sertifikat']);
+Route::get('/get-projects', [ProjectController::class, 'get_project']);

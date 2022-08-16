@@ -58,6 +58,17 @@
                             <div data-i18n="Analytics">Projects</div>
                         </BreezeNavLink>
                     </BreezeListItem>
+
+                    <!-- Projects -->
+                    <BreezeListItem :active="route().current('penghargaan.index')">
+                        <BreezeNavLink
+                            :href="route('penghargaan.index')"
+                            :active="route().current('penghargaan.index')"
+                        >
+                            <i class='menu-icon bx bx-award'></i>
+                            <div data-i18n="Analytics">Penghargaan</div>
+                        </BreezeNavLink>
+                    </BreezeListItem>
                 </ul>
             </aside>
             <!-- / Menu -->

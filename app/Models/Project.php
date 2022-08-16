@@ -16,6 +16,10 @@ class Project extends Model
     }
 
     public function koleksi(){
-        return $this->hasOne(Koleksi::class);
+        return $this->hasMany(Koleksi::class);
+    }
+
+    public function anggota(){
+        return $this->hasMany(Anggota::class);
     }
 }
