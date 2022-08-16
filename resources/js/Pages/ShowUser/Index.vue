@@ -211,11 +211,14 @@
                                     <p class="card-text">{{ projects[no - 1].deskripsi }}</p>
                                     <div class="container p-0">
                                         <div class="row">
-                                            <img v-for="skil in skilProject[no-1]" :src="`/storage/${skil.logo}`" alt="" style="width: 3.4rem;object-fit: cover;">
+                                            <img v-for="skil in skilProject[no - 1]" :src="`/storage/${skil.logo}`" alt=""
+                                                style="width: 3.4rem;object-fit: cover;">
                                         </div>
                                     </div>
-                                    <a :href="projects[no-1].link_github" class="btn btn-warning d-block mt-2" v-if="projects[no-1].link_github">Link Github</a>
-                                    <a :href="projects[no-1].link_website" class="btn btn-warning d-block mt-2" v-if="projects[no-1].link_website">Link Website</a>
+                                    <a :href="projects[no - 1].link_github" class="btn btn-warning d-block mt-2"
+                                        v-if="projects[no - 1].link_github">Link Github</a>
+                                    <a :href="projects[no - 1].link_website" class="btn btn-warning d-block mt-2"
+                                        v-if="projects[no - 1].link_website">Link Website</a>
                                 </div>
                             </div>
                         </div>
@@ -264,6 +267,10 @@
             </div>
         </div>
     </ShowUser>
+
+    <loading-progress :progress="progress" :indeterminate="indeterminate" :counter-clockwise="counterClockwise"
+        :hide-background="hideBackground" shape="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" size="180"
+        fill-duration="2" />
 </template>
 
 <script setup>

@@ -12,7 +12,7 @@ import 'primevue/resources/primevue.min.css';               //core css
 import 'primeicons/primeicons.css';                           //icons
 import MultiSelect from 'primevue/multiselect';
 import TagsBall from 'TagCloud';
-import $ from 'jquery'
+import $ from 'jquery';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
