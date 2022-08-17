@@ -59,7 +59,7 @@
                         </BreezeNavLink>
                     </BreezeListItem>
 
-                    <!-- Projects -->
+                    <!-- Penghargaan -->
                     <BreezeListItem :active="route().current('penghargaan.index')">
                         <BreezeNavLink
                             :href="route('penghargaan.index')"
@@ -67,6 +67,17 @@
                         >
                             <i class='menu-icon bx bx-award'></i>
                             <div data-i18n="Analytics">Penghargaan</div>
+                        </BreezeNavLink>
+                    </BreezeListItem>
+
+                    <!-- Configurasi -->
+                    <BreezeListItem :active="route().current('configurasi.index')">
+                        <BreezeNavLink
+                            :href="route('configurasi.index')"
+                            :active="route().current('configurasi.index')"
+                        >
+                            <i class='menu-icon bx bx-cog'></i>
+                            <div data-i18n="Analytics">Configurasi</div>
                         </BreezeNavLink>
                     </BreezeListItem>
                 </ul>

@@ -109,4 +109,14 @@ class PenghargaanController extends Controller
         $sertifikat = Penghargaan::where('kategori', 'sertifikat')->latest()->paginate(6);
         return response()->json($sertifikat, 200);
     }
+
+    public function get_all_achivement(){
+        $achivements = Penghargaan::where('kategori', 'achivement')->latest()->get();
+        return response()->json($achivements, 200);
+    }
+
+    public function get_all_sertifikat(){
+        $sertifikat = Penghargaan::where('kategori', 'sertifikat')->latest()->get();
+        return response()->json($sertifikat, 200);
+    }
 }

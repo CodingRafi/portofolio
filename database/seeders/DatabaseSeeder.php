@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Configurasi;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +21,35 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => \Hash::make('password')
         ]);  
+
+        Configurasi::create([
+            'key' => 'about',
+            'value' => ''
+        ]);
+        Configurasi::create([
+            'key' => 'facebook',
+            'value' => ''
+        ]);
+        Configurasi::create([
+            'key' => 'instagram',
+            'value' => ''
+        ]);
+        Configurasi::create([
+            'key' => 'linkedin',
+            'value' => ''
+        ]);
+        Configurasi::create([
+            'key' => 'github',
+            'value' => ''
+        ]);
+        Configurasi::create([
+            'key' => 'twitter',
+            'value' => ''
+        ]);
+        Configurasi::create([
+            'key' => 'youtube',
+            'value' => ''
+        ]);
 
         \App\Models\User::factory(10)->create();
 

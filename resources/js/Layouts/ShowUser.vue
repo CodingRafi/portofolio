@@ -18,19 +18,19 @@
                                 <Link class="nav-link" href="/">Home</Link>
                             </li>
                             <li class="nav-item">
-                                <Link class="nav-link" href="#">About Me</Link>
+                                <Link class="nav-link" href="/about-me">About Me</Link>
                             </li>
                             <li class="nav-item">
-                                <Link class="nav-link" href="#">Skills</Link>
+                                <Link class="nav-link" href="/skills">Skills</Link>
                             </li>
                             <li class="nav-item">
-                                <Link class="nav-link" href="#">Appreciation</Link>
+                                <Link class="nav-link" href="/appreciation">Appreciation</Link>
                             </li>
                             <li class="nav-item">
-                                <Link class="nav-link" href="#">Project</Link>
+                                <Link class="nav-link" href="/project">Project</Link>
                             </li>
                             <li class="nav-item">
-                                <Link class="nav-link" href="#">Contact</Link>
+                                <Link class="nav-link" href="/contact">Contact</Link>
                             </li>
                         </ul>
                     </div>
