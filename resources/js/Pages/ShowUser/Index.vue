@@ -285,9 +285,7 @@
         </div>
     </ShowUser>
 
-    <loading-progress :progress="progress" :indeterminate="indeterminate" :counter-clockwise="counterClockwise"
-        :hide-background="hideBackground" shape="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" size="180"
-        fill-duration="2" />
+    <ring-loader  :color="color" :size="size"></ring-loader>
 </template>
 
 <script setup>
@@ -300,6 +298,7 @@ import Textarea from 'primevue/textarea';
 import Button from 'primevue/button';
 import { Inertia } from "@inertiajs/inertia";
 import axios from 'axios';
+import RingLoader from 'vue-spinner/src/RingLoader.vue'
 
 let typeValue = ref('');
 let typeStatus = false;
@@ -309,6 +308,11 @@ let erasingSpeed = 100;
 let newTextDelay = 2000;
 let typeArrayIndex = 0;
 let charIndex = 0;
+
+const color = '#fbaf0e';
+const size = '45px';
+// const margin = '2px';
+const radius = '2px';
 
 const dataMessage = reactive({
     name: null,
@@ -390,6 +394,10 @@ let youtube = ref();
 
 onMounted(() => {
     typeText();
+
+    window.addEventListener('load', function(){
+        document.querySelector('.v-spinner').style.opacity = '1';
+    })
 
     const container = document.querySelector('.container-ball');
     var x = window.matchMedia("(max-width: 300px)");

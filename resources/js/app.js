@@ -14,6 +14,7 @@ import MultiSelect from 'primevue/multiselect';
 import TagsBall from 'TagCloud';
 import $ from 'jquery';
 
+
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
