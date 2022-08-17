@@ -15,6 +15,7 @@
                                 <th>No</th>
                                 <th>Logo</th>
                                 <th>Skill</th>
+                                <th>Deskripsi</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -27,6 +28,7 @@
                                         class="m-auto">
                                 </td>
                                 <td class="nama-skil">{{ $page.props.skills[no - 1].nama }}</td>
+                                <td class="nama-skil">{{ $page.props.skills[no - 1].deskripsi }}</td>
                                 <td class="d-flex justify-content-center">
                                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#update"
                                         @click.prevent="moveDataEdit" :data-id="no - 1" style="margin-right: 10px;">
@@ -60,6 +62,11 @@
                             <div class="mb-3">
                                 <BreezeLabel for="nama" value="Nama Skill" />
                                 <BreezeInput id="nama" type="text" name="nama" placeholder="Nama skill"
+                                    class="mt-1 block w-full input-tambah" required autofocus />
+                            </div>
+                            <div class="mb-3">
+                                <BreezeLabel for="nama" value="Deskripsi" />
+                                <BreezeInput id="nama" type="text" name="deskripsi" placeholder="Deskripsi"
                                     class="mt-1 block w-full input-tambah" required autofocus />
                             </div>
                             <div class="mb-3">
@@ -147,6 +154,7 @@ const submit = (e) => {
 
     let data = reactive({
         nama: form.get("nama"),
+        deskripsi: form.get('deskripsi'),
         logo: form.get('logo')
     });
 
@@ -165,7 +173,6 @@ const moveDataEdit = (e) => {
     formUpdate.nama = usePage().props.value.skills[e.target.getAttribute('data-id')].nama;
     // inputEdit.value = '';
     // inputEdit.value = usePage().props.value.skills[e.target.getAttribute('data-id')].nama;
-    console.log(formUpdate)
     
     if (usePage().props.value.skills[e.target.getAttribute('data-id')].logo.length > 0) {
         logoTersimpan.setAttribute('src', '');

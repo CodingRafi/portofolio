@@ -40,7 +40,8 @@
                     </div>
 
                     <div class="deskripsi-about">
-                        <p style="padding: .5rem 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+                        <p style="padding: .5rem 0;" class="p-about-me">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Magnam
                             eligendi
                             explicabo alias, optio laudantium suscipit. Reprehenderit numquam blanditiis dicta nemo
                             architecto
@@ -49,41 +50,55 @@
                             eaque
                             sapiente quibusdam culpa facilis reiciendis expedita cum quidem.</p>
 
-                        <p style="padding: .5rem 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-                            accusantium aliquam assumenda, distinctio officia rerum. Illo obcaecati quo officiis iusto.
-                        </p>
-
                         <div class="container p-0">
                             <div class="row">
-                                <div class="col-1 ms-3 p-0 ml-0 col-sosmed">
-                                    <div class="icon-sosmed">
-                                        <div class="tooltip">Facebook</div>
-                                        <span><i class='bx bxl-facebook'></i></span>
-                                    </div>
+                                <div class="col-1 ms-3 p-0 ml-0 col-sosmed" v-if="facebook">
+                                    <a href="{{ facebook }}">
+                                        <div class="icon-sosmed">
+                                            <div class="tooltip">Facebook</div>
+                                            <span><i class='bx bxl-facebook'></i></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="col-1 ms-3 p-0 col-sosmed">
-                                    <div class="icon-sosmed">
-                                        <div class="tooltip">Instagram</div>
-                                        <span><i class='bx bxl-instagram-alt'></i></span>
-                                    </div>
+                                <div class="col-1 ms-3 p-0 col-sosmed" v-if="instagram">
+                                    <a href="{{ instagram }}">
+                                        <div class="icon-sosmed">
+                                            <div class="tooltip">Instagram</div>
+                                            <span><i class='bx bxl-instagram-alt'></i></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="col-1 ms-3 p-0 col-sosmed">
-                                    <div class="icon-sosmed">
-                                        <div class="tooltip">Linkedin</div>
-                                        <span><i class='bx bxl-linkedin-square'></i></span>
-                                    </div>
+                                <div class="col-1 ms-3 p-0 col-sosmed" v-if="linkedin">
+                                    <a href="{{ linkedin }}">
+                                        <div class="icon-sosmed">
+                                            <div class="tooltip">Linkedin</div>
+                                            <span><i class='bx bxl-linkedin-square'></i></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="col-1 ms-3 p-0 col-sosmed">
-                                    <div class="icon-sosmed">
-                                        <div class="tooltip">Github</div>
-                                        <span><i class='bx bxl-github'></i></span>
-                                    </div>
+                                <div class="col-1 ms-3 p-0 col-sosmed" v-if="github">
+                                    <a href="{{ github }}">
+                                        <div class="icon-sosmed">
+                                            <div class="tooltip">Github</div>
+                                            <span><i class='bx bxl-github'></i></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="col-1 ms-3 p-0 col-sosmed">
-                                    <div class="icon-sosmed">
-                                        <div class="tooltip">Twitter</div>
-                                        <span><i class='bx bxl-twitter'></i></span>
-                                    </div>
+                                <div class="col-1 ms-3 p-0 col-sosmed" v-if="twitter">
+                                    <a href="{{ twitter }}">
+                                        <div class="icon-sosmed">
+                                            <div class="tooltip">Twitter</div>
+                                            <span><i class='bx bxl-twitter'></i></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-1 ms-3 p-0 col-sosmed" v-if="youtube">
+                                    <a href="{{ youtube }}">
+                                        <div class="icon-sosmed">
+                                            <div class="tooltip">Youtube</div>
+                                            <span><i class='bx bxl-youtube'></i></span>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -106,15 +121,17 @@
                                     style="font-size: 1.5rem;"></i></button>
                             <div class="card"
                                 style="width: 35%;padding: 1rem;box-sizing: border-box;border-radius: 50%;display: flex;justify-content: center;align-items: center;margin: auto;">
-                                <img src="image/html-5.png" alt="" style="width: 5rem;object-fit: cover;">
+                                <img src="image/html-5.png" alt="" style="width: 5rem;object-fit: cover;"
+                                    class="img-logo-card">
                             </div>
-                            <h5 class="card-title text-center mt-3" style="color:#FBAF0E;font-weight: 600;">HTML5</h5>
+                            <h5 class="card-title text-center mt-3 card-h5-skill-detail"
+                                style="color:#FBAF0E;font-weight: 600;">HTML5</h5>
                             <p class="card-text text-center deskripsi-detail-skill">Some quick example text to build on
                                 the card title and make up
                                 the bulk of
                                 the card's content.</p>
                             <div class="d-grid gap-2 mt-2">
-                                <Link class="btn btn-warning" href="#">All Project With HTML5</Link>
+                                <Link class="btn btn-warning link-skill" href="#">All Project With HTML5</Link>
                             </div>
                         </div>
                     </div>
@@ -181,7 +198,7 @@
             </div>
         </div>
 
-        <div class="container mt-5 container-project" style="width: 87%;min-height: 90vh;">
+        <div class="container mt-5 container-project" style="width: 87%;min-height: 90vh;" v-if="projects.length > 0">
             <div class="container p-0">
                 <div class="row">
                     <div class="col-10">
@@ -211,11 +228,14 @@
                                     <p class="card-text">{{ projects[no - 1].deskripsi }}</p>
                                     <div class="container p-0">
                                         <div class="row">
-                                            <img v-for="skil in skilProject[no-1]" :src="`/storage/${skil.logo}`" alt="" style="width: 3.4rem;object-fit: cover;">
+                                            <img v-for="skil in skilProject[no - 1]" :src="`/storage/${skil.logo}`"
+                                                alt="" style="width: 3.4rem;object-fit: cover;">
                                         </div>
                                     </div>
-                                    <a :href="projects[no-1].link_github" class="btn btn-warning d-block mt-2" v-if="projects[no-1].link_github">Link Github</a>
-                                    <a :href="projects[no-1].link_website" class="btn btn-warning d-block mt-2" v-if="projects[no-1].link_website">Link Website</a>
+                                    <a :href="projects[no - 1].link_github" class="btn btn-warning d-block mt-2"
+                                        v-if="projects[no - 1].link_github">Link Github</a>
+                                    <a :href="projects[no - 1].link_website" class="btn btn-warning d-block mt-2"
+                                        v-if="projects[no - 1].link_website">Link Website</a>
                                 </div>
                             </div>
                         </div>
@@ -342,7 +362,6 @@ const closeDetailSkill = (e) => {
 }
 
 const sendMessage = () => {
-    console.log(dataMessage.name)
     axios.post('/api/message', {
         name: dataMessage.name,
         email: dataMessage.email,
@@ -357,6 +376,13 @@ const sendMessage = () => {
         dataMessage.message = '';
     })
 }
+
+let facebook = ref();
+let instagram = ref();
+let linkedin = ref();
+let github = ref();
+let twitter = ref();
+let youtube = ref();
 
 onMounted(() => {
     typeText();
@@ -381,6 +407,23 @@ onMounted(() => {
 
         TagCloud(container, texts, options);
         document.querySelector(".tagcloud").style.margin = "auto";
+
+        //? Jika salah satu skill di click
+        const skills = document.querySelectorAll('.tagcloud span');
+        skills.forEach((e, i) => {
+            e.addEventListener('click', function () {
+                axios.get(`/api/skill/${i + 1}`).then((response) => {
+                    document.querySelector('.img-logo-card').setAttribute('src', '');
+                    document.querySelector('.img-logo-card').setAttribute('src', `/storage/${response.data.logo}`);
+                    document.querySelector('.card-h5-skill-detail').innerHTML = '';
+                    document.querySelector('.card-h5-skill-detail').innerHTML = response.data.nama;
+                    document.querySelector('.deskripsi-detail-skill').innerHTML = '';
+                    document.querySelector('.deskripsi-detail-skill').innerHTML = response.data.deskripsi;
+                })
+                const containerSkill = document.querySelector('.container-skill');
+                containerSkill.classList.add('show');
+            })
+        });
     })
 
     axios.get('/api/get-achivement').then((response) => {
@@ -404,22 +447,21 @@ onMounted(() => {
 
     })
 
+    axios.get('/api/get_configurasi').then((response) => {
+        document.querySelector('.p-about-me').innerHTML = response.data.configurasis[0].value;
+        facebook.value = response.data.configurasis[1].value;
+        linkedin.value = response.data.configurasis[3].value;
+        instagram.value = response.data.configurasis[2].value;
+        github.value = response.data.configurasis[4].value;
+        twitter.value = response.data.configurasis[5].value;
+        youtube.value = response.data.configurasis[6].value;
+    })
+
     if (localStorage.getItem('mode') == 'light') {
         document.querySelector('body').classList.add('light');
     } else {
         document.querySelector('body').classList.remove('light');
     }
-
-    //? Jika salah satu skill di click
-    const skills = document.querySelectorAll('.tagcloud span');
-    console.log(skills)
-    skills.forEach(e => {
-        e.addEventListener('click', function () {
-            console.log('oke')
-            const containerSkill = document.querySelector('.container-skill');
-            containerSkill.classList.add('show');
-        })
-    });
 })
 
 </script>

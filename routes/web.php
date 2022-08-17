@@ -6,6 +6,8 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\SkilController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ShowWebController;
+use App\Http\Controllers\ConfigurasiController;
 use App\Http\Controllers\PenghargaanController;
 
 /*
@@ -28,9 +30,12 @@ use App\Http\Controllers\PenghargaanController;
 //     ]);
 // });
 
-Route::get('/', function () {
-    return Inertia::render('ShowUser/Index');
-});
+Route::get('/', [ShowWebController::class, 'index']);
+Route::get('/about-me', [ShowWebController::class, 'about']);
+Route::get('/skills', [ShowWebController::class, 'skills']);
+Route::get('/appreciation', [ShowWebController::class, 'appreciation']);
+Route::get('/project', [ShowWebController::class, 'project']);
+Route::get('/contact', [ShowWebController::class, 'contact']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -42,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('projects', ProjectController::class);
     Route::resource('penghargaan', PenghargaanController::class);
     Route::resource('message', MessageController::class);
+    Route::resource('configurasi', ConfigurasiController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -44,6 +44,7 @@ class SkilController extends Controller
     {
         Skil::create([
             'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
             'logo' => $request->file('logo')->store('logo')
         ]);
 
@@ -56,9 +57,10 @@ class SkilController extends Controller
      * @param  \App\Models\Skil  $skil
      * @return \Illuminate\Http\Response
      */
-    public function show(Skil $skil)
+    public function show(Skil $skil, $id)
     {
-        //
+        $skill = Skil::where('id', $id)->first();
+        return response()->json($skill, 200);
     }
 
     /**
@@ -118,7 +120,7 @@ class SkilController extends Controller
     }
 
     public function get_api(){
-        $skills = Skil::orderBy('created_at', 'desc')->get();
+        $skills = Skil::all();
         return response()->json($skills, 200);
     }
 }
