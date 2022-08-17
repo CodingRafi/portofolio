@@ -50,6 +50,11 @@ class DatabaseSeeder extends Seeder
             'key' => 'youtube',
             'value' => ''
         ]);
+        Configurasi::create([
+            'key' => 'cv',
+            'value' => ''
+        ]);
+
 
         \App\Models\User::factory(10)->create();
 

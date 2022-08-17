@@ -11,9 +11,13 @@
                             <BreezeInput v-model="data.key" id="nama" type="text" name="key" 
                                 class="mt-2 block w-full input-tambah" disabled autofocus />
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-3" v-if="data.key != 'cv'">
                             <BreezeLabel for="nama" value="Kategori" />
                             <Textarea v-model="data.value" class="mt-2" style="width: 100%;" rows="5" />
+                        </div>
+                        <div class="mt-3" v-if="data.key == 'cv'">
+                            <BreezeLabel for="nama" value="Kategori" />
+                            <input type="file" name="file" @change="data.file = $event.target.files[0]" class="mt-2">
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <Button type="submit" class="mt-3" label="Submit" />
@@ -42,13 +46,16 @@ import Textarea from 'primevue/textarea';
 let data = reactive({
     key: null,
     value: null,
+    file: null
 });
 
 data.key = usePage().props.value.configurasi.key;
 data.value = usePage().props.value.configurasi.value;
+data.file = usePage().props.value.configurasi.file;
 
 const save = (e) => {
-    Inertia.patch(`/configurasi/${usePage().props.value.configurasi.id}`, data);
+    console.log(usePage().props.value.configurasi.file)
+    // Inertia.patch(`/configurasi/${usePage().props.value.configurasi.id}`, data);
 }
 
 </script>

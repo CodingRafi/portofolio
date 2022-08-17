@@ -7,6 +7,7 @@ use App\Http\Requests\StoreConfigurasiRequest;
 use App\Http\Requests\UpdateConfigurasiRequest;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ConfigurasiController extends Controller
 {
@@ -78,8 +79,18 @@ class ConfigurasiController extends Controller
     public function update(UpdateConfigurasiRequest $request, Configurasi $configurasi)
     {
         $validatedData = $request->validate([
-            'value' => 'required'
+            'value' => 'string',
+            'file' => 'mimes:pdf|max:10000'
         ]);
+
+        if($request->file('file')){
+            if($configurasi->file){
+                Storage::delete($configurasi->file);
+            }
+            $validatedDate['file'] = $request->file('file')->store('cv');
+        }
+
+        dd($validatedData);
 
         $configurasi->update($validatedData);
 
@@ -102,5 +113,15 @@ class ConfigurasiController extends Controller
         return response()->json([
             'configurasis' => $configurasis
         ], 200);
+    }
+
+    public function downloadCv(){
+        $file= public_path(). "./cv/file.pdf";
+
+        $headers = array(
+            'Content-Type: application/pdf',
+          );
+
+          return response()->download($file, 'CV.pdf', $headers);
     }
 }

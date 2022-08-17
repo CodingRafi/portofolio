@@ -49,7 +49,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* loading */
-
+/* 
 .v-spinner{
     position: fixed;
     top: 0;
@@ -61,7 +61,7 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     opacity: 0;
     background-color: #1c1c1c;
-}
+} */
 
 @keyframes cursorBlink {
     49% {
@@ -721,7 +721,7 @@ body.light::-webkit-scrollbar-thumb {
 
 /* Todo Media Query */
 
-@media (max-width: 480px) {
+@media (max-width: 810px) {
     .container-nav {
         padding: 0 !important;
         margin: 0 !important;

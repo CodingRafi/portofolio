@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container super-container p-0">
+    <div class="container super-container p-0" style="max-width: 100vw;">
         <div class="container-nav container-fluid mt-4 position-fixed d-flex justify-content-center"
             style="padding: 0 3rem;z-index: 999;">
             <nav class="navbar navbar-expand-lg nav-portofolio" style="border-radius: 3px; width: 90%;">

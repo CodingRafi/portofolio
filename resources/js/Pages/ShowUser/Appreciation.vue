@@ -1,7 +1,7 @@
 <template>
     <ShowUser>
 
-        <div class="container container-penghargaan" style="width: 87%;padding: 6rem 0;">
+        <div class="container container-penghargaan" style="width: 87%;min-height: 100vh;padding-top: 6rem !important;">
             <h1 class="h1-achivement">Appreciation</h1>
             <div class="container p-0">
                 <div class="card text-center" style="background-color: transparent;box-shadow: none;">

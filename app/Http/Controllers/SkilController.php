@@ -123,4 +123,5 @@ class SkilController extends Controller
         $skills = Skil::all();
         return response()->json($skills, 200);
     }
+
 }

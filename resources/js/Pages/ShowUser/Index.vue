@@ -13,8 +13,13 @@
                             <span class="cursor" :class="{ 'typing': typeStatus }">&nbsp;</span>
                         </h1>
                     </div>
-                    <button class="button button--hyperion"><span><span>Download
-                                CV</span></span></button>
+                    <button class="button button--hyperion">
+                        <a href="/download">
+                            <span>
+                                <span>DownloadCV</span>
+                            </span>
+                        </a>
+                    </button>
                 </div>
                 <div class="col-6 image">
                     <div class="container d-flex justify-content-center position-relative">
@@ -285,7 +290,7 @@
         </div>
     </ShowUser>
 
-    <ring-loader  :color="color" :size="size"></ring-loader>
+    <!-- <ring-loader  :color="color" :size="size"></ring-loader> -->
 </template>
 
 <script setup>
@@ -298,7 +303,7 @@ import Textarea from 'primevue/textarea';
 import Button from 'primevue/button';
 import { Inertia } from "@inertiajs/inertia";
 import axios from 'axios';
-import RingLoader from 'vue-spinner/src/RingLoader.vue'
+// import RingLoader from 'vue-spinner/src/RingLoader.vue'
 
 let typeValue = ref('');
 let typeStatus = false;
@@ -309,10 +314,10 @@ let newTextDelay = 2000;
 let typeArrayIndex = 0;
 let charIndex = 0;
 
-const color = '#fbaf0e';
-const size = '45px';
+// const color = '#fbaf0e';
+// const size = '45px';
 // const margin = '2px';
-const radius = '2px';
+// const radius = '2px';
 
 const dataMessage = reactive({
     name: null,
@@ -395,9 +400,9 @@ let youtube = ref();
 onMounted(() => {
     typeText();
 
-    window.addEventListener('load', function(){
-        document.querySelector('.v-spinner').style.opacity = '1';
-    })
+    // window.addEventListener('load', function(){
+    //     document.querySelector('.v-spinner').style.opacity = '1';
+    // })
 
     const container = document.querySelector('.container-ball');
     var x = window.matchMedia("(max-width: 300px)");
