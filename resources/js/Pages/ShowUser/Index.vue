@@ -13,13 +13,15 @@
                             <span class="cursor" :class="{ 'typing': typeStatus }">&nbsp;</span>
                         </h1>
                     </div>
-                    <button class="button button--hyperion">
-                        <a href="/download">
-                            <span>
-                                <span>DownloadCV</span>
-                            </span>
-                        </a>
-                    </button>
+                    <div class="container p-0 container-button-home-cv">
+                        <button class="button button--hyperion">
+                            <a href="/download">
+                                <span>
+                                    <span>Download CV</span>
+                                </span>
+                            </a>
+                        </button>
+                    </div>
                 </div>
                 <div class="col-6 image">
                     <div class="container d-flex justify-content-center position-relative">
@@ -45,20 +47,12 @@
                     </div>
 
                     <div class="deskripsi-about">
-                        <p style="padding: .5rem 0;" class="p-about-me">Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Magnam
-                            eligendi
-                            explicabo alias, optio laudantium suscipit. Reprehenderit numquam blanditiis dicta nemo
-                            architecto
-                            quod, repudiandae aliquam possimus eligendi. Incidunt esse explicabo est, enim doloremque,
-                            voluptates delectus ullam, tempore quisquam at praesentium velit accusantium magnam et modi
-                            eaque
-                            sapiente quibusdam culpa facilis reiciendis expedita cum quidem.</p>
+                        <p style="padding: .5rem 0;" class="p-about-me"></p>
 
                         <div class="container p-0">
                             <div class="row">
                                 <div class="col-1 ms-3 p-0 ml-0 col-sosmed" v-if="facebook">
-                                    <a href="{{ facebook }}">
+                                    <a :href="facebook" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Facebook</div>
                                             <span><i class='bx bxl-facebook'></i></span>
@@ -66,7 +60,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="instagram">
-                                    <a href="{{ instagram }}">
+                                    <a :href="instagram" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Instagram</div>
                                             <span><i class='bx bxl-instagram-alt'></i></span>
@@ -74,7 +68,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="linkedin">
-                                    <a href="{{ linkedin }}">
+                                    <a :href="linkedin" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Linkedin</div>
                                             <span><i class='bx bxl-linkedin-square'></i></span>
@@ -82,7 +76,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="github">
-                                    <a href="{{ github }}">
+                                    <a :href="github" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Github</div>
                                             <span><i class='bx bxl-github'></i></span>
@@ -90,7 +84,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="twitter">
-                                    <a href="{{ twitter }}">
+                                    <a :href="twitter" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Twitter</div>
                                             <span><i class='bx bxl-twitter'></i></span>
@@ -98,7 +92,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="youtube">
-                                    <a href="{{ youtube }}">
+                                    <a :href="youtube" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Youtube</div>
                                             <span><i class='bx bxl-youtube'></i></span>
@@ -119,7 +113,7 @@
             <div class="row row-skill">
                 <div class="col-5 col-detail d-flex align-items-center justify-content-center">
                     <div class="card card-detail-skill"
-                        style="width: 20rem;transition: 1s;box-shadow: 0 10px 20px 0 rgb(0 0 0 / 25%);background-color: #424242;border-radius: 3px;    border-radius: 5px;overflow: hidden;color: #f2f2f2;">
+                        style="width: 20rem;transition: 1s;box-shadow: 0 10px 20px 0 rgb(0 0 0 / 25%);background-color: rgb(46 46 46);border-radius: 3px;    border-radius: 5px;overflow: hidden;color: #f2f2f2;">
                         <div class="card-body">
                             <button style="position: absolute;right: 1rem;top: 1rem;"
                                 @click.prevent="closeDetailSkill"><i class='bx bx-x icon-close-detail-skill'
@@ -135,9 +129,9 @@
                                 the card title and make up
                                 the bulk of
                                 the card's content.</p>
-                            <div class="d-grid gap-2 mt-2">
+                            <!-- <div class="d-grid gap-2 mt-2">
                                 <Link class="btn btn-warning link-skill" href="#">All Project With HTML5</Link>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -155,16 +149,16 @@
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item">
                                 <a class="nav-link active appreciation-link" data-bs-toggle="tab"
-                                    href="#achievement">Achievement</a>
+                                    href="#certificate">Certificate</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link appreciation-link" data-bs-toggle="tab"
-                                    href="#certificate">Certificate</a>
+                                    href="#achievement">Achievement</a>
                             </li>
                         </ul>
                     </div>
                     <div class="card-body tab-content p-0" style="min-height: 26rem;">
-                        <div class="tab-pane active" id="achievement">
+                        <div class="tab-pane" id="achievement">
                             <div class="container p-0">
                                 <div class="row">
                                     <div class="flip-card" v-for="penghargaan in achievements[0]">
@@ -182,7 +176,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="certificate">
+                        <div class="tab-pane active" id="certificate">
                             <div class="row">
                                 <div class="flip-card" v-for="sertifikat in sertifikats[0]">
                                     <div class="flip-card-inner">
@@ -191,8 +185,8 @@
                                                 style="width:22rem;height:13rem;object-fit: cover;">
                                         </div>
                                         <div class="flip-card-back">
-                                            <h1 class="flip-card-h1">{{ sertifikat.nama }}</h1>
-                                            <p class="mt-2 card-text">{{ sertifikat.deskripsi }}</p>
+                                            <h1 class="flip-card-h1" style="font-size: 1.1rem;">{{ sertifikat.nama }}</h1>
+                                            <p class="mt-3 card-text">{{ sertifikat.deskripsi }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -210,15 +204,24 @@
                         <h1 class="h1-achivement">Projects</h1>
                     </div>
                     <div class="col col-button-project">
-                        <Link class="btn btn-warning" href="#">All Projects</Link>
+                        <Link class="btn btn-warning" href="/project">All Projects</Link>
                     </div>
                 </div>
             </div>
             <div class="container mt-3 p-0">
                 <div class="row">
-                    <div class="card mb-3 p-0 card-project ms-3"
-                        style="max-width: 500px;background-color: #424242;color: #fff;height: 12rem;"
-                        v-for="no in projects.length">
+                    <Link class="p-0" :href="`/project/${projects[no - 1].id}`" v-for="no in projects.length"
+                        style="width: 31rem;margin: 0 1.3rem;">
+                    <div class="card mb-3 mt-3 card-project" style="background-color: rgb(46 46 46);color: #fff;">
+                        <img :src="`/storage/${fotoProject[no - 1][0].nama}`" class="card-img-top" alt="...">
+                        <div class="card-body" style="height: 8rem;overflow: auto;">
+                            <h5 class="mb-3" style="color: #cf9419;font-weight: 700;font-size: 1.2rem;">{{ projects[no-1].nama
+                            }}</h5>
+                            <p class="card-text">{{ projects[no - 1].deskripsi }}</p>
+                        </div>
+                    </div>
+                    <!-- <div class="card mb-3 p-0 card-project ms-3"
+                        style="background-color: #424242;color: #fff;height: 12rem;">
                         <div class="row g-0">
                             <div class="col-5 col-5-card-project">
                                 <img :src="`/storage/${fotoProject[no - 1][0].nama}`"
@@ -232,19 +235,20 @@
                                     <p class="card-text">as {{ projects[no - 1].role }}</p>
                                     <p class="card-text">{{ projects[no - 1].deskripsi }}</p>
                                     <div class="container p-0">
-                                        <div class="row">
-                                            <img v-for="skil in skilProject[no - 1]" :src="`/storage/${skil.logo}`"
-                                                alt="" style="width: 3.4rem;object-fit: cover;">
+                                            <div class="row">
+                                                <img v-for="skil in skilProject[no - 1]" :src="`/storage/${skil.logo}`"
+                                                    alt="" style="width: 3.4rem;object-fit: cover;">
+                                            </div>
                                         </div>
-                                    </div>
                                     <a :href="projects[no - 1].link_github" class="btn btn-warning d-block mt-2"
-                                        v-if="projects[no - 1].link_github">Link Github</a>
-                                    <a :href="projects[no - 1].link_website" class="btn btn-warning d-block mt-2"
-                                        v-if="projects[no - 1].link_website">Link Website</a>
+                                            v-if="projects[no - 1].link_github">Link Github</a>
+                                        <a :href="projects[no - 1].link_website" class="btn btn-warning d-block mt-2"
+                                            v-if="projects[no - 1].link_website">Link Website</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+                    </Link>
                 </div>
             </div>
         </div>
@@ -307,7 +311,7 @@ import axios from 'axios';
 
 let typeValue = ref('');
 let typeStatus = false;
-let typeArray = ['Frontend Web Developer', 'Backend Web Developer', 'Wordpress Developer', 'Mobile Developer'];
+let typeArray = ['Frontend Web Developer', 'Backend Web Developer', 'Wordpress Developer', 'Mobile Developer', 'UI / UX Designer'];
 let typingSpeed = 200;
 let erasingSpeed = 100;
 let newTextDelay = 2000;
@@ -472,6 +476,7 @@ onMounted(() => {
         github.value = response.data.configurasis[4].value;
         twitter.value = response.data.configurasis[5].value;
         youtube.value = response.data.configurasis[6].value;
+        console.log(facebook.value)
     })
 
     if (localStorage.getItem('mode') == 'light') {

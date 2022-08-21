@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => \Hash::make('password')
+            'password' => \Hash::make('CODINGRAFI250505')
         ]);  
 
         Configurasi::create([

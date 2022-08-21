@@ -7,7 +7,7 @@
             <div class="row row-skill">
                 <div class="col-5 col-detail d-flex align-items-center justify-content-center">
                     <div class="card card-detail-skill"
-                        style="width: 20rem;transition: 1s;box-shadow: 0 10px 20px 0 rgb(0 0 0 / 25%);background-color: #424242;border-radius: 3px;    border-radius: 5px;overflow: hidden;color: #f2f2f2;">
+                        style="width: 20rem;transition: 1s;box-shadow: 0 10px 20px 0 rgb(0 0 0 / 25%);background-color: rgb(46 46 46);border-radius: 3px;    border-radius: 5px;overflow: hidden;color: #f2f2f2;">
                         <div class="card-body">
                             <button style="position: absolute;right: 1rem;top: 1rem;"
                                 @click.prevent="closeDetailSkill"><i class='bx bx-x icon-close-detail-skill'
@@ -23,9 +23,9 @@
                                 the card title and make up
                                 the bulk of
                                 the card's content.</p>
-                            <div class="d-grid gap-2 mt-2">
+                            <!-- <div class="d-grid gap-2 mt-2">
                                 <Link class="btn btn-warning link-skill" href="#">All Project With HTML5</Link>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -83,6 +83,12 @@ onMounted(() => {
             })
         });
     })  
+
+     if (localStorage.getItem('mode') == 'light') {
+        document.querySelector('body').classList.add('light');
+    } else {
+        document.querySelector('body').classList.remove('light');
+    }
 })
 
 const closeDetailSkill = (e) => {

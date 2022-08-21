@@ -30,6 +30,16 @@
                             <BreezeInput v-model="data.link_website" id="nama" type="text" name="github" placeholder="Link Website"
                                 class="mt-2 block w-full input-tambah" autofocus />
                         </div>
+                         <div class="mt-3">
+                            <BreezeLabel for="nama" value="Link Figma" />
+                            <BreezeInput v-model="data.link_figma" id="nama" type="text" name="github" placeholder="Link Figma"
+                                class="mt-2 block w-full input-tambah" autofocus />
+                        </div>
+                         <div class="mt-3">
+                            <BreezeLabel for="nama" value="Link Trello" />
+                            <BreezeInput v-model="data.link_trello" id="nama" type="text" name="github" placeholder="Link Trello"
+                                class="mt-2 block w-full input-tambah" autofocus />
+                        </div>
                         <div class="mt-3">
                             <BreezeLabel for="nama" value="Skills" />
                             <MultiSelect class="mt-2 select-multi" :filter="true" v-model="data.skills" :options="skills"
@@ -76,6 +86,8 @@ let data = reactive({
     nama: null,
     link_github: null,
     link_website: null,
+    link_figma: null,
+    link_trello: null,
     role: null,
     deskripsi: null,
     skills: null,

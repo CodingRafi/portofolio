@@ -30,5 +30,6 @@ Route::get('/get-all-achivement', [PenghargaanController::class, 'get_all_achive
 Route::get('/get-sertifikat', [PenghargaanController::class, 'get_sertifikat']);
 Route::get('/get-all-sertifikat', [PenghargaanController::class, 'get_all_sertifikat']);
 Route::get('/get-projects', [ProjectController::class, 'get_project']);
+Route::get('/get-all-projects', [ProjectController::class, 'get_all_projects']);
 Route::get('/skill/{id}', [SkilController::class, 'show']);
 Route::get('/get_configurasi', [ConfigurasiController::class, 'get_configurasi']);

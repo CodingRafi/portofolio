@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('nama');
             $table->string('role');
             $table->text('deskripsi');
-            $table->string('link_github');
-            $table->string('link_website');
+            $table->string('link_github')->nullable();
+            $table->string('link_figma')->nullable();
+            $table->string('link_trello')->nullable();
+            $table->string('link_website')->nullable();
             $table->timestamps();
         });
 

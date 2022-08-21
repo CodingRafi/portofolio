@@ -62,6 +62,8 @@ class ProjectController extends Controller
             'deskripsi' => $request->deskripsi,
             'link_github' => $request->link_github ?? '',
             'link_website' => $request->link_website ?? '',
+            'link_figma' => $request->link_figma ?? '',
+            'link_trello' => $request->link_trello ?? '',
         ]);
 
         foreach ($request->skills as $key => $skill) {
@@ -87,9 +89,19 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Project $project, $id)
     {
-        //
+        $project = Project::where('id', $id)->get();
+        $skills = Skil::getSkills($project);
+
+        $koleksis = Koleksi::koleksis($project);
+        $fotos = Foto::foto($koleksis);
+        
+        return Inertia::render('Project/Show', [
+            'project' => $project,
+            'skills' => $skills,
+            'fotos' => $fotos,
+        ]);
     }
 
     /**
@@ -136,6 +148,21 @@ class ProjectController extends Controller
 
     public function get_project(){
         $projects = Project::latest()->paginate(6);
+
+        $skills = Skil::getSkills($projects);
+
+        $koleksis = Koleksi::koleksis($projects);
+        $fotos = Foto::foto($koleksis);
+        
+        return response()->json([
+            'projects' => $projects,
+            'skills' => $skills,
+            'fotos' => $fotos,
+        ], 200);
+    }
+
+    public function get_all_projects(){
+        $projects = Project::latest()->get();
 
         $skills = Skil::getSkills($projects);
 

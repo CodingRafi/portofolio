@@ -19,6 +19,8 @@
                                 <th>Deskripsi</th>
                                 <th>Link Github</th>
                                 <th>Link Website</th>
+                                <th>Link Figma</th>
+                                <th>Link Trello</th>
                                 <th>Gambar Utama</th>
                                 <th>Gambar Preview</th>
                                 <th>Actions</th>
@@ -35,6 +37,8 @@
                                 <td>{{ $page.props.projects[no - 1].deskripsi }}</td>
                                 <td>{{ $page.props.projects[no - 1].link_github }}</td>
                                 <td>{{ $page.props.projects[no - 1].link_website }}</td>
+                                <td>{{ $page.props.projects[no - 1].link_figma }}</td>
+                                <td>{{ $page.props.projects[no - 1].link_trello }}</td>
                                 <td>
                                     <img :src="`/storage/${$page.props.fotos[no-1][0].nama}`" alt="">
                                 </td>

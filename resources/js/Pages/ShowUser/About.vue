@@ -20,7 +20,7 @@
                         <div class="container p-0">
                             <div class="row">
                                 <div class="col-1 ms-3 p-0 ml-0 col-sosmed" v-if="facebook">
-                                    <a href="{{ facebook }}">
+                                    <a :href="facebook" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Facebook</div>
                                             <span><i class='bx bxl-facebook'></i></span>
@@ -28,7 +28,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="instagram">
-                                    <a href="{{ instagram }}">
+                                    <a :href="instagram" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Instagram</div>
                                             <span><i class='bx bxl-instagram-alt'></i></span>
@@ -36,7 +36,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="linkedin">
-                                    <a href="{{ linkedin }}">
+                                    <a :href="linkedin" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Linkedin</div>
                                             <span><i class='bx bxl-linkedin-square'></i></span>
@@ -44,7 +44,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="github">
-                                    <a href="{{ github }}">
+                                    <a :href="github" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Github</div>
                                             <span><i class='bx bxl-github'></i></span>
@@ -52,7 +52,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="twitter">
-                                    <a href="{{ twitter }}">
+                                    <a :href="twitter" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Twitter</div>
                                             <span><i class='bx bxl-twitter'></i></span>
@@ -60,7 +60,7 @@
                                     </a>
                                 </div>
                                 <div class="col-1 ms-3 p-0 col-sosmed" v-if="youtube">
-                                    <a href="{{ youtube }}">
+                                    <a :href="youtube" target="_blank">
                                         <div class="icon-sosmed">
                                             <div class="tooltip">Youtube</div>
                                             <span><i class='bx bxl-youtube'></i></span>
@@ -98,5 +98,11 @@ onMounted(() => {
         twitter.value = response.data.configurasis[5].value;
         youtube.value = response.data.configurasis[6].value;
     })
+    
+    if (localStorage.getItem('mode') == 'light') {
+        document.querySelector('body').classList.add('light');
+    } else {
+        document.querySelector('body').classList.remove('light');
+    }
 })
 </script>

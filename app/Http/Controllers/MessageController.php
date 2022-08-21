@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use Inertia\Inertia;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MessageController extends Controller
 {
@@ -15,7 +18,10 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::orderBy('created_at', 'desc')->get();
+        return Inertia::render('message/Index', [
+            'messages' => $messages
+        ]);
     }
 
     /**

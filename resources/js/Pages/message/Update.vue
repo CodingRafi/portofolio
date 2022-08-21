@@ -34,7 +34,7 @@ import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import BreezeButton from "@/Components/Button.vue";
 import BreezeInput from "@/Components/Input.vue";
 import BreezeLabel from "@/Components/Label.vue";
-import { usePage } from '@inertiajs/inertia-vue3'
+import { usePage } from '@inertiajs/inertia-vue3';
 import { onMounted, ref, reactive } from "vue";
 import Button from 'primevue/button';
 import { Inertia } from "@inertiajs/inertia";
@@ -54,8 +54,8 @@ data.value = usePage().props.value.configurasi.value;
 data.file = usePage().props.value.configurasi.file;
 
 const save = (e) => {
-    // console.log(usePage().props.value.configurasi.file)
-    Inertia.patch(`/configurasi/${usePage().props.value.configurasi.id}`, data);
+    console.log(usePage().props.value.configurasi.file)
+    // Inertia.patch(`/configurasi/${usePage().props.value.configurasi.id}`, data);
 }
 
 </script>

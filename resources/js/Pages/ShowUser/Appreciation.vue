@@ -9,16 +9,16 @@
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item">
                                 <a class="nav-link active appreciation-link" data-bs-toggle="tab"
-                                    href="#achievement">Achievement</a>
+                                    href="#certificate">Certificate</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link appreciation-link" data-bs-toggle="tab"
-                                    href="#certificate">Certificate</a>
+                                    href="#achievement">Achievement</a>
                             </li>
                         </ul>
                     </div>
                     <div class="card-body tab-content p-0" style="min-height: 26rem;">
-                        <div class="tab-pane active" id="achievement">
+                        <div class="tab-pane" id="achievement">
                             <div class="container p-0">
                                 <div class="row">
                                     <div class="flip-card" v-for="penghargaan in achievements[0]">
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="certificate">
+                        <div class="tab-pane active" id="certificate">
                             <div class="row">
                                 <div class="flip-card" v-for="sertifikat in sertifikats[0]">
                                     <div class="flip-card-inner">
@@ -45,8 +45,8 @@
                                                 style="width:22rem;height:13rem;object-fit: cover;">
                                         </div>
                                         <div class="flip-card-back">
-                                            <h1 class="flip-card-h1">{{ sertifikat.nama }}</h1>
-                                            <p class="mt-2 card-text">{{ sertifikat.deskripsi }}</p>
+                                            <h1 class="flip-card-h1" style="font-size: 1.1rem;">{{ sertifikat.nama }}</h1>
+                                            <p class="mt-3 card-text">{{ sertifikat.deskripsi }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -75,6 +75,12 @@ onMounted(() => {
     axios.get('/api/get-all-sertifikat').then((response) => {
         sertifikats.value.push(response.data)
     })
+
+    if (localStorage.getItem('mode') == 'light') {
+        document.querySelector('body').classList.add('light');
+    } else {
+        document.querySelector('body').classList.remove('light');
+    }
 })
 
 </script>

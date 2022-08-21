@@ -71,4 +71,12 @@ const sendMessage = () => {
         dataMessage.message = '';
     })
 }
+
+onMounted(() => {
+    if (localStorage.getItem('mode') == 'light') {
+        document.querySelector('body').classList.add('light');
+    } else {
+        document.querySelector('body').classList.remove('light');
+    }
+})
 </script>

@@ -7,41 +7,24 @@
                         <h1 class="h1-achivement">Projects</h1>
                     </div>
                     <div class="col col-button-project">
-                        <Link class="btn btn-warning" href="#">All Projects</Link>
+                        <!-- <Link class="btn btn-warning" href="#">All Projects</Link> -->
                     </div>
                 </div>
             </div>
             <div class="container mt-3 p-0">
                 <div class="row">
-                    <div class="card mb-3 p-0 card-project ms-3"
-                        style="max-width: 500px;background-color: #424242;color: #fff;height: 12rem;"
-                        v-for="no in projects.length">
-                        <div class="row g-0">
-                            <div class="col-5 col-5-card-project">
-                                <img :src="`/storage/${fotoProject[no - 1][0].nama}`"
-                                    class="img-fluid rounded-start img-card-project" alt="..."
-                                    style="height: 12rem;object-fit: cover;">
-                            </div>
-                            <div class="col-md-7">
-                                <div class="card-body position-absolute card-body-project"
-                                    style="height: 12rem;overflow: auto;width: 59%;">
-                                    <h5 class="card-title card-project-h5">{{ projects[no - 1].nama }}</h5>
-                                    <p class="card-text">as {{ projects[no - 1].role }}</p>
-                                    <p class="card-text">{{ projects[no - 1].deskripsi }}</p>
-                                    <div class="container p-0">
-                                        <div class="row">
-                                            <img v-for="skil in skilProject[no - 1]" :src="`/storage/${skil.logo}`"
-                                                alt="" style="width: 3.4rem;object-fit: cover;">
-                                        </div>
-                                    </div>
-                                    <a :href="projects[no - 1].link_github" class="btn btn-warning d-block mt-2"
-                                        v-if="projects[no - 1].link_github">Link Github</a>
-                                    <a :href="projects[no - 1].link_website" class="btn btn-warning d-block mt-2"
-                                        v-if="projects[no - 1].link_website">Link Website</a>
-                                </div>
-                            </div>
+                    <Link class="p-0" :href="`/project/${projects[no - 1].id}`" v-for="no in projects.length"
+                        style="width: 31rem;margin: 0 1.3rem;">
+                    <div class="card mb-3 mt-3 card-project" style="background-color: rgb(46 46 46);color: #fff;">
+                        <img :src="`/storage/${fotoProject[no - 1][0].nama}`" class="card-img-top" alt="...">
+                        <div class="card-body" style="height: 8rem;overflow: auto;">
+                            <h5 class="mb-3" style="color: #cf9419;font-weight: 700;font-size: 1.2rem;">{{
+                                    projects[no - 1].nama
+                            }}</h5>
+                            <p class="card-text">{{ projects[no - 1].deskripsi }}</p>
                         </div>
                     </div>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -59,9 +42,9 @@ let skilProject = ref([]);
 let fotoProject = ref([]);
 
 onMounted(() => {
-    axios.get('/api/get-projects').then((response) => {
-        for (let i = 0; i < response.data.projects.data.length; i++) {
-            projects.value.push(response.data.projects.data[i]);
+    axios.get('/api/get-all-projects').then((response) => {
+        for (let i = 0; i < response.data.projects.length; i++) {
+            projects.value.push(response.data.projects[i]);
         }
         for (let x = 0; x < response.data.skills.length; x++) {
             skilProject.value.push(response.data.skills[x]);
@@ -69,7 +52,12 @@ onMounted(() => {
         for (let y = 0; y < response.data.fotos.length; y++) {
             fotoProject.value.push(response.data.fotos[y]);
         }
-
     })
+
+    if (localStorage.getItem('mode') == 'light') {
+        document.querySelector('body').classList.add('light');
+    } else {
+        document.querySelector('body').classList.remove('light');
+    }
 })
 </script>

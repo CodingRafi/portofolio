@@ -80,6 +80,17 @@
                             <div data-i18n="Analytics">Configurasi</div>
                         </BreezeNavLink>
                     </BreezeListItem>
+
+                    <!-- messages -->
+                    <BreezeListItem :active="route().current('message.index')">
+                        <BreezeNavLink
+                            :href="route('message.index')"
+                            :active="route().current('message.index')"
+                        >
+                            <i class='menu-icon bx bx-message-dots'></i>
+                            <div data-i18n="Analytics">Message</div>
+                        </BreezeNavLink>
+                    </BreezeListItem>
                 </ul>
             </aside>
             <!-- / Menu -->

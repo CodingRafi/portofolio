@@ -30,10 +30,10 @@ body::-webkit-scrollbar-thumb {
     background: #232323;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .h1nya span.typed-text {
-    color: #FBAF0E;
+    color: #fbaf0e;
 }
 
 .h1nya span.cursor {
@@ -80,7 +80,7 @@ body::-webkit-scrollbar-thumb {
 .button {
     background: #fbaf0e;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     position: relative;
     display: inline-block;
 }
@@ -102,21 +102,25 @@ body::-webkit-scrollbar-thumb {
     color: #fff;
 }
 
+.button--hyperion a {
+    color: #fff !important;
+}
+
 .button--hyperion span {
     display: block;
     position: relative;
 }
 
-.button--hyperion>span {
+.button--hyperion > span {
     overflow: hidden;
 }
 
-.button--hyperion>span>span {
+.button--hyperion > span > span {
     overflow: hidden;
     mix-blend-mode: hard-light;
 }
 
-.button--hyperion:hover>span>span {
+.button--hyperion:hover > span > span {
     animation: MoveUpInitial 0.2s forwards, MoveUpEnd 0.2s forwards 0.2s;
 }
 
@@ -137,7 +141,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .button--hyperion::before {
-    content: '';
+    content: "";
     background: #1c1c1c;
     transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
     transform-origin: 100% 50%;
@@ -166,10 +170,10 @@ body::-webkit-scrollbar-thumb {
 .h1-aboutme:after,
 .h1-skills:after,
 .h1-achivement::after {
-    content: '';
+    content: "";
     width: 4rem;
     height: 3px;
-    background-color: #FBAF0E;
+    background-color: #fbaf0e;
     position: absolute;
     left: 0;
     top: 2.5rem;
@@ -192,7 +196,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .tagcloud span {
-    color: #FBAF0E;
+    color: #fbaf0e;
     cursor: pointer;
 }
 
@@ -221,7 +225,7 @@ body::-webkit-scrollbar-thumb {
 
 .icon-sosmed i {
     color: #fff;
-    transition: .4s linear;
+    transition: 0.4s linear;
     font-size: 1.6rem;
 }
 
@@ -233,22 +237,22 @@ body::-webkit-scrollbar-thumb {
     color: #fff;
     padding: 5px 8px;
     border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
     pointer-events: none;
-    transition: all .3s cubic-bezier(0.68, -.55, .256, 1.55);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.256, 1.55);
 }
 
 .icon-sosmed::before,
 .icon-sosmed::after {
-    content: '';
+    content: "";
     position: absolute;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
-    transition: .4s linear;
+    transition: 0.4s linear;
 }
 
 .icon-sosmed:hover .tooltip {
@@ -260,9 +264,9 @@ body::-webkit-scrollbar-thumb {
 
 .icon-sosmed span,
 .icon-sosmed:hover .tooltip {
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, .1);
-    transform: scale(.8);
-    transition: .4s linear;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transform: scale(0.8);
+    transition: 0.4s linear;
 }
 
 .icon-sosmed:hover::before {
@@ -270,7 +274,7 @@ body::-webkit-scrollbar-thumb {
     border-left: 4px solid;
     border-right: 4px solid;
     transform: skewX(20deg);
-    color: #FBAF0E;
+    color: #fbaf0e;
 }
 
 .icon-sosmed:hover::after {
@@ -278,7 +282,7 @@ body::-webkit-scrollbar-thumb {
     border-top: 4px solid;
     border-bottom: 4px solid;
     transform: skewY(-20deg);
-    color: #FBAF0E;
+    color: #fbaf0e;
 }
 
 /* .card-project:hover .card-body-detail-project {
@@ -308,7 +312,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .nav-link:hover {
-    color: var(--warna-valet-myyellow);
+    color: var(--warna-valet-myyellow) !important;
 }
 
 .h1nya {
@@ -337,21 +341,21 @@ body::-webkit-scrollbar-thumb {
     font-size: 1.2rem;
 }
 
-.input-contact{
+.input-contact {
     width: 100%;
 }
 
-.card-contact{
-    background-color: #424242;
+.card-contact {
+    background-color: rgb(46 46 46) !important;
 }
 
-.input-gabungan{
+.input-gabungan {
     color: #fbaf0e !important;
     box-shadow: none !important;
     background-color: #1c1c1c !important;
 }
 
-.input-contact{
+.input-contact {
     border: none !important;
 }
 /* Card Project */
@@ -606,6 +610,10 @@ body.light .button--hyperion {
     border: 1px solid #f2f2f2;
 }
 
+body.light .button--hyperion a{
+    color: #1c1c1c !important;
+}
+
 body.light .icon-sosmed i {
     color: #1c1c1c;
 }
@@ -631,12 +639,12 @@ body.light .h1nya span.cursor {
 }
 
 body.light .card-body-detail-project,
-body.light .card-contact{
+body.light .card-contact {
     background-color: #f8f8f8 !important;
     box-shadow: 0 3px 6px #0000001c !important;
 }
 
-body.light .input-gabungan{
+body.light .input-gabungan {
     border: 1px solid #ced4da !important;
     color: #495057 !important;
     background-color: #fff !important;
@@ -747,7 +755,7 @@ body.light::-webkit-scrollbar-thumb {
     }
 
     .row-profile {
-        display: grid;
+        display: grid !important;
         grid-template-areas:
             "image"
             "text1";
@@ -755,12 +763,12 @@ body.light::-webkit-scrollbar-thumb {
 
     .image {
         grid-area: image;
-        width: 100%;
+        width: 100% !important;
     }
 
     .text {
-        grid-area: text1;
-        width: 100%;
+        grid-area: text1 !important;
+        width: 100% !important;
         padding-top: 9rem;
     }
 
@@ -780,7 +788,6 @@ body.light::-webkit-scrollbar-thumb {
     }
 
     .button--hyperion {
-        left: 25%;
         margin-top: 1rem !important;
     }
 
@@ -790,6 +797,8 @@ body.light::-webkit-scrollbar-thumb {
 
     .about-image {
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .text-about {
@@ -833,6 +842,7 @@ body.light::-webkit-scrollbar-thumb {
 
     .card-body-project {
         position: static !important;
+        width: 100% !important;
     }
 
     .card-project {
@@ -857,40 +867,44 @@ body.light::-webkit-scrollbar-thumb {
         right: -60vw;
     }
 
-    .card-contact{
+    .card-contact {
         padding: 0;
     }
 
-    .col-input-contact{
+    .col-input-contact {
         width: 100%;
     }
 
-    .col-input-contact:last-child{
+    .col-input-contact:last-child {
         margin-top: 1rem;
     }
 
-    .container-contact-me-2{
+    .container-contact-me-2 {
         padding: 0 !important;
     }
 
-    .row-skill{
+    .row-skill {
         display: grid;
-        grid-template-areas: 
-            'bola'
-            'detail-skill'
-        ;
+        grid-template-areas:
+            "bola"
+            "detail-skill";
     }
 
-    .col-detail{
+    .col-detail {
         grid-area: detail-skill;
         width: 65% !important;
     }
-    
-    .col-bola-skill{
+
+    .col-bola-skill {
         width: 65% !important;
         grid-area: bola;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .container-button-home-cv {
+        display: flex !important;
+        justify-content: center !important;
     }
 }

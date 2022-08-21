@@ -35,6 +35,7 @@ Route::get('/about-me', [ShowWebController::class, 'about']);
 Route::get('/skills', [ShowWebController::class, 'skills']);
 Route::get('/appreciation', [ShowWebController::class, 'appreciation']);
 Route::get('/project', [ShowWebController::class, 'project']);
+Route::get('/project/{id}', [ProjectController::class, 'show']);
 Route::get('/contact', [ShowWebController::class, 'contact']);
 Route::get('/download', [ConfigurasiController::class, 'downloadCv']);
 

@@ -79,8 +79,7 @@ class ConfigurasiController extends Controller
     public function update(UpdateConfigurasiRequest $request, Configurasi $configurasi)
     {
         $validatedData = $request->validate([
-            'value' => 'string',
-            'file' => 'mimes:pdf|max:10000'
+            'value' => 'string'
         ]);
 
         if($request->file('file')){
@@ -89,8 +88,6 @@ class ConfigurasiController extends Controller
             }
             $validatedDate['file'] = $request->file('file')->store('cv');
         }
-
-        dd($validatedData);
 
         $configurasi->update($validatedData);
 
